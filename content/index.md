@@ -1,0 +1,4 @@
+---
+layout: index
+---
+# Blog Posts
