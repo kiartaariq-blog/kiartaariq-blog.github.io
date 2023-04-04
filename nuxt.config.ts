@@ -12,5 +12,10 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  nitro: {
+    prerender: {
+      routes: ['/blog/']
+    }
+  }
 })
 
