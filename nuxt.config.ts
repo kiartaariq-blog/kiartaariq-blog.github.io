@@ -1,6 +1,7 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   modules: ['@nuxt/content'],
+  target: 'static',
   content: {
     documentDriven: true
   },
@@ -11,6 +12,5 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  target: 'static',
 })
 
