@@ -1,10 +1,11 @@
 ---
-title: Test Post
+title: How not to Kafka
 author: Taariq Nazar
-image: cover.jpg
 layout: blog
-createdAt: 01-06-22
-description: First post about something small
+createdAt: April 4th 2023
+description: "This post will be about what Apache Kafka is and a simple
+implementation using Apache Kafka with Python."
+tags: [Tutorial, Python, Apache Kafka]
 
 ---
 
