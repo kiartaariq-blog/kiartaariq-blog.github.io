@@ -11,5 +11,6 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  target: 'static',
 })
 
