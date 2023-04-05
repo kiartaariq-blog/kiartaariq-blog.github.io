@@ -7,16 +7,13 @@ description: "Math blog post for testing tex in markdown"
 tags: [LaTex, Math]
 
 ---
-# First Math post
+# First Math Post
 
-::tex
- \int_0^1 f(x) dx
-::
+"@nuxt/content": "^2.5.2",
 Inline `code`
-
 Block code "fences"
 
-```js :app-copy-button
+```js
 var foo = function (bar) {
   return bar++
 }

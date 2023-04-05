@@ -3,7 +3,15 @@ export default defineNuxtConfig({
   modules: ['@nuxt/content'],
   target: 'static',
   content: {
-    documentDriven: true
+    documentDriven: true,
+    markdown: {
+      remarkPlugins: [
+        'remark-math'
+      ],
+      rehypePlugins: [
+        'rehype-katex'
+      ]
+    },
   },
   css: ['~/assets/css/main.css'],
   postcss: {
