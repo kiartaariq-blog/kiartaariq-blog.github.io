@@ -1,5 +1,5 @@
 <template>
   <div>
-    Welcome to our Nuxt blog.
+    Documentation page
   </div>
 </template>
