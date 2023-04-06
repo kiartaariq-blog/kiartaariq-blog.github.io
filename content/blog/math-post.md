@@ -8,8 +8,6 @@ tags: [LaTex, Math]
 
 ---
 # First Math Post
-
-"@nuxt/content": "^2.5.2",
 Inline `code`
 Block code "fences"
 

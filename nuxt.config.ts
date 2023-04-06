@@ -9,7 +9,7 @@ export default defineNuxtConfig({
         'remark-math'
       ],
       rehypePlugins: [
-        'rehype-katex'
+        'rehype-mathjax'
       ]
     },
   },
