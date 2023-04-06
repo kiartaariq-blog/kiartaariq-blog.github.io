@@ -8,6 +8,9 @@ tags: [LaTex, Math]
 
 ---
 # First Math Post
+$$
+  \int_0^1 e^{ix}f(y)dy = \sum_{i=0}^\infty a_n sin(k_n x)
+$$
 Inline `code`
 Block code "fences"
 
