@@ -8,18 +8,17 @@ tags: [LaTex, Math]
 
 ---
 # First Math Post
-$$
-  \int_0^1 e^{ix}f(y)dy = \sum_{i=0}^\infty a_n sin(k_n x)
-$$
 Inline `code`
 Block code "fences"
 
-```js
-var foo = function (bar) {
-  return bar++
-}
+```python
+def add(a,b):
+  return a+b
 
-console.log(foo(5))
+p = 10
+q = 9
+
+print(add(p,q))
 ```
 [link text](http://dev.nodeca.com)
 

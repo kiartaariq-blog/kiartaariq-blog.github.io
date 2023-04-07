@@ -12,7 +12,7 @@ module.exports = {
     extend: {},
     container: {
       center: true,
-    }
+    },
   },
   plugins: [
     require('@tailwindcss/typography')
