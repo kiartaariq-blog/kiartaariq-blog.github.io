@@ -2,10 +2,17 @@
 Atom One Dark With support for ReasonML by Gidi Morris, based off work by Daniel Gamage
 Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
 */
-.hljs {
+/*.hljs {
   color: #abb2bf;
-  background: #282c34;
+  background: var(--tw-prose-pre-bg)#282c34;
+}*/
+
+.hljs {
+  margin:0;
+  padding:0;
+  background: none;
 }
+
 .hljs-keyword, .hljs-operator {
   color: #F92672;
 }

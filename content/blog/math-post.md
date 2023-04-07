@@ -11,7 +11,7 @@ tags: [LaTex, Math]
 Inline `code`
 Block code "fences"
 
-```python
+```python [main.py]
 def add(a,b):
   return a+b
 
