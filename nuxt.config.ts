@@ -6,6 +6,10 @@ export default defineNuxtConfig({
   content: {
     documentDriven: true,
     markdown: {
+      toc: {
+        depth:1,
+        searchDepth:1,
+      },
       remarkPlugins: [
         'remark-highlight.js',
         'remark-math'
