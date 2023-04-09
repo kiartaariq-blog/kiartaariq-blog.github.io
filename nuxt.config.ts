@@ -1,7 +1,7 @@
 import highlighjs from "highlight.js"
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  modules: ['@nuxt/content'],
+  modules: ['nuxt-content-assets', '@nuxt/content'],
   target: 'static',
   content: {
     documentDriven: true,
