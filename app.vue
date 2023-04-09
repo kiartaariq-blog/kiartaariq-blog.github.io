@@ -1,5 +1,5 @@
 <template>
-  <div class ="absolute w-full h-full bg-slate-50 font-mono p-5 flex">
+  <div class ="absolute w-full bg-slate-50 font-mono p-5">
     <div class="container max-w-3xl">
       <NavBar />
       <NuxtPage/>
