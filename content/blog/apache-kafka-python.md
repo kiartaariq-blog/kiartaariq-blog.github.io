@@ -8,7 +8,7 @@ implement a simple module which utilizes it."
 tags: [Apache Kafka, Tutorial, Python]
 toc: true
 ---
-# Apache Kafka
+## Apache Kafka
 
 So what is Apache Kafka? Apache Kafka is an internal application messaging
 system which has a particular workflow. It has a notion of producers and
@@ -19,7 +19,7 @@ way for these modules to converse with each is evident. Apache Kafka is one way
 for communications between these services. The idea is simple and I believe the
 best way to explain it would be through an example. 
 
-## Example
+### Example
 
 Say, we want to build an app that displays the information of a basketball
 game. What are the components we need? We will need a part that gathers the data
@@ -33,14 +33,14 @@ Apache Kafka is that it is easily scalable. Say we want to add more features.
 Say player statistics, then instead of contaminating the original data
 producer, we create a whole new module. Which the display module consumes from.
 
-## Topics
+### Topics
 Formally, how is this all done. For this we need to introduce the notion of
 topics. Topics are tagged messaging queues. Producers add data to these ques
 under a specific topic. Consumers on the other hand **subscribe** to specific
 topics which they then consume the data from them. So each Producer can write to
 specific topics and each consumer can read from specific topics.
 
-# Implementation
+## Implementation
 Maybe add context to what I want to build? Maybe build an app that reads data
 from some website and an app that displays this data in real time? Stock data
 maybe? Or a basketball match? Create a python app and a vue app.
@@ -54,7 +54,7 @@ To begin with we need to install Apache Kafka on your system. How does on
 install Apache Kafka? Maybe Docker? or is that too much for a person to think
 off? Because then they need to understand Docker.
 
-## Producer
+### Producer
 
 To begin with, I assume that you have python installed. Begin with installing
 apache kafka using pip
