@@ -27,7 +27,7 @@ As seen in Figure 1, the SEK (vs. 6M STIBOR) is a swap curve based on the 6 mont
 
 ## Quantlib
 <p style ="text-align: justify">
-We initiate with setting the desired date and importing the required packages. The date is set with reference to the top right corner of Figure 3. Note, this is a very important step of the bootstrapping procedure as it will ensure us that the maturity dates of the curve will be correct:
+We initiate with setting the desired date and importing the required packages. The date of which the bootstrap procedure begins is set with reference to the top right corner of Figure 2. In this case it corresponds to the settlement date which often is T + 2 of the initial date. Note, this is a very important step (also will deviate across platforms) of the bootstrapping procedure as it will ensure us that the maturity dates of the curve will be correct:
 </p>
 
 ```python
@@ -93,8 +93,8 @@ As mentioned previously, 6M STIBOR is the 6 month average short end interest rat
 ### stibor_calendar
 Next up is the calendar, in this case TARGET is applied. TARGET stands for Trans-European Automated Real-time Gross settlement Express Transfer, which is a standarized calendar for financial instruments, selecting the correct calendar is important as they contain the days of which there is a holiday. Holidays are essential to consider as they are a variable to the final maturity date of the instrument.  Note, we have the choice to use ql.SWEDEN() - or make a custom calendar - if we feel that TARGET is missing out on a bank holiday specifically for Sweden. It is up to you to decide what calendar is fit for you. 
 
-### stibor_fixing_day TBA
-Fixing days in finance refer to specific dates when the interest rate or other terms of a financial instrument are established or adjusted. In the context of a deposit, fixing days are the dates on which the interest rate for the deposit is set. 
+### stibor_fixing_day 
+We have interpreted the fixing_day input as the settlement date of the instrument which for Swedish instruments are often set to 2 days.
 
 ### stibor_convention
 Afterwards, the convention for date rolling is set to Modified Following. Date rolling refers to the adjustment of the maturity date given if a business date of our instrument falls on a holiday, as the market is closed on holidays. The maturity date will then typically be shifted to a business day. This will result in the maturity date often having a few extra days before it matures.
@@ -174,22 +174,47 @@ Note that you also have the option here to change the calendar and the day count
 </p>
 
 ## Result
+
 <p style = text-align: justify>
-The resulting curve from Bloomberg can be observed in Figure 2. In Figure 3 it is possible to view the curve that we have managed to create.
+The zero rates from Bloomberg can be observed in Figure 2. In addition, in Figure 3 contains the resulting curve from QuantLib. To make it easier to compare the curves a table is created of which the difference between the results are calculated as viewed in Table 1. However, the basis point difference can be disregarded as the result from Bloomberg is rounded. Thus, the extra digits in basis point difference are all from the QuantLib approximation which if we would also round them up would result in zeros.
 </p>
 
 ![image alt text](media/curve.png)
 |:--:| 
-| Figure 1: The Bloomberg curve SEK (vs. 6M STIBOR) from Curve Construction in the Bloomberg Terminal. |
+| Figure 2: The Bloomberg curve SEK (vs. 6M STIBOR) from Curve Construction in the Bloomberg Terminal. |
 
-<p style = text-align: justify>
-To make it easier to compare a table is created of which the difference between the results are calculated as viewed in Table 1.
-</p>
+![image alt text](media/quantlib_res.png)
+|:--:| 
+| Figure 3: The resulting curve from QuantLib using quotes from Bloomberg. |
+
+
+|    | Date       |   Quotes|   QuantLib Zero Rates |   Bloomberg Zero Rates |   Basis Point Difference |
+|---:|:-----------|--------:|---------------------:|-----------------------:|-------------------------:|
+|  1 | 2023-07-13 | 3.218   |              3.23658 |                3.23658 |              -0.015275   |
+|  2 | 2024-01-11 | 3.52271 |              3.46208 |                3.46207 |              -0.0746395  |
+|  3 | 2025-01-13 | 3.47321 |              3.40873 |                3.40873 |              -0.04655    |
+|  4 | 2026-01-12 | 3.3141  |              3.25169 |                3.25169 |              -0.0397416  |
+|  5 | 2027-01-11 | 3.1997  |              3.13788 |                3.13788 |               0.038115   |
+|  6 | 2028-01-11 | 3.1205  |              3.05876 |                3.05876 |              -0.0230695  |
+|  7 | 2029-01-11 | 3.0774  |              3.01476 |                3.01476 |               0.0163274  |
+|  8 | 2030-01-11 | 3.049   |              2.98702 |                2.98702 |              -0.00937578 |
+|  9 | 2031-01-13 | 3.024   |              2.96223 |                2.96223 |              -0.0348135  |
+| 10 | 2032-01-12 | 3.0059  |              2.94438 |                2.94438 |              -0.0386432  |
+| 11 | 2033-01-11 | 2.9881  |              2.92562 |                2.92562 |               0.0279722  |
+| 12 | 2035-01-11 | 2.9531  |              2.88943 |                2.88943 |              -0.0104289  |
+| 13 | 2038-01-11 | 2.8876  |              2.81743 |                2.81743 |              -0.0475918  |
+| 14 | 2043-01-12 | 2.7831  |              2.69882 |                2.69882 |              -0.0153047  |
+| 15 | 2053-01-13 | 2.5631  |              2.43391 |                2.43391 |              -0.0218202  |
+![]()
+|:--:| 
+| Table 1: QuantLib and Bloomberg zero rates with their corresponding underlying quotes.|
 
 ## Conclusion
-<p style = text-align: justify>
-In this blog post we have managed to recreate the SEK (vs. 6M STIBOR) from curve construction from the Bloomberg Terminal using QuantLib. If you are interested in the full Python code you can find [here](https://github.com/test-blog/test-blog-scripts)
 
+<p style = text-align: justify>
+
+In this blog post we have managed to recreate the SEK (vs. 6M STIBOR) from curve construction from the Bloomberg Terminal using QuantLib. If you are interested in the full Python code you can find [here](https://github.com/test-blog/test-blog-scripts).
 
 In the next post for bootstrapping we will have a look how to manually bootstrap. 
+
 </p>
