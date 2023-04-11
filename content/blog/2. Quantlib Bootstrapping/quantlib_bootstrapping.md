@@ -161,7 +161,7 @@ for r,m in zip(mid, tenor):
     store_helpers.append(swap_helper)
 ```
 
-<p style = text-align: justify>
+<p style = "text-align: justify">
 Now that all instruments are defined we can execute the bootstrapping algorithm by using the following:
 </p>
 
@@ -169,13 +169,13 @@ Now that all instruments are defined we can execute the bootstrapping algorithm 
 curve = ql.PiecewiseLinearZero(0, ql.TARGET(), helpers, ql.Actual365Fixed())
 ```
 
-<p style = text-align: justify>
+<p style = "text-align: justify">
 Note that you also have the option here to change the calendar and the day count for the bootstrap itself. You will have the option to modify these parameters based on your desired outcome.
 </p>
 
 ## Result
 
-<p style = text-align: justify>
+<p style = "text-align: justify">
 The zero rates from Bloomberg can be observed in Figure 2. In addition, in Figure 3 contains the resulting curve from QuantLib. To make it easier to compare the curves a table is created of which the difference between the results are calculated as viewed in Table 1. However, the basis point difference can be disregarded as the result from Bloomberg is rounded. Thus, the extra digits in basis point difference are all from the QuantLib approximation which if we would also round them up would result in zeros.
 </p>
 
@@ -205,13 +205,11 @@ The zero rates from Bloomberg can be observed in Figure 2. In addition, in Figur
 | 13 | 2038-01-11 | 2.8876  |              2.81743 |                2.81743 |              -0.0475918  |
 | 14 | 2043-01-12 | 2.7831  |              2.69882 |                2.69882 |              -0.0153047  |
 | 15 | 2053-01-13 | 2.5631  |              2.43391 |                2.43391 |              -0.0218202  |
-![]()
-|:--:| 
 | Table 1: QuantLib and Bloomberg zero rates with their corresponding underlying quotes.|
 
 ## Conclusion
 
-<p style = text-align: justify>
+<p style = "text-align: justify">
 
 In this blog post we have managed to recreate the SEK (vs. 6M STIBOR) from curve construction from the Bloomberg Terminal using QuantLib. If you are interested in the full Python code you can find [here](https://github.com/test-blog/test-blog-scripts).
 
