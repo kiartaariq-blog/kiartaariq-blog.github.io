@@ -9,7 +9,9 @@ toc: true
 ---
 ## Introduction
 <p style="text-align: justify"> 
-The processes of deriving a yield curve has many names in the finance industry, it can be called for example: finding the redemption curve, constructing the term structure of interest rates, stripping and etc. In this blog post we will go through the process of constructing the yield curve for the Bloomberg SEK (vs. 6M STIBOR), also known as 348, with the help of the Python package QuantLib. When reading this tutorial consider that the main goal is to learn how to bootstrap interest rate curves with Quantlib and that Bloomberg's curve will be our answer key to make sure that everything is correct regarding dates, day count and calendar conventions. Moreover, it is assumed that the reader is familiar with instruments such as deposits and swaps - why else would you end up here.
+The process of calculating a yield curve has many names in the finance industry. it can be called finding the redemption curve, constructing the term structure of interest rates, stripping and so on. In this blog post we will go through the process of constructing the yield curve for the Bloomberg SEK (vs. 6M STIBOR), also known as 348, with the help of the Python package QuantLib.
+
+When reading this tutorial consider that the main goal is to learn how to bootstrap interest rate curves with QuantLib and that Bloomberg's curve will be our answer key to make sure that everything is correct regarding dates, day count and calendar conventions. Moreover, it is assumed that the reader is familiar with instruments such as deposits and swaps - how else would you end up here?
 
 The packages that are needed for this tutorial are:
 - QuantLib
@@ -18,7 +20,9 @@ The packages that are needed for this tutorial are:
 
 ## SEK (vs. 6M STIBOR)
 <p style ="text-align: justify">
-As seen in Figure 1, the SEK (vs. 6M STIBOR) is a swap curve based on the 6 month Stockholm Interbank Offered Rate, which denotes the 6M STIBOR. The cash rate for the 6M STIBOR can be viewed on the left hand side of Figure 1 and on the right handside of Figure 1 the rates for the swaps. From respective panels of the instruments the daycount convention can also be seen in the bottom. The usage of SEK (vs. 6M STIBOR) is to forecast the interest rate for the 6M STIBOR. Thus meaning, that whatever point we select on the curve is what the market will assume the 6M STIBOR will be in that amount of time. As a result this will forecast the floating leg of a swap.
+As shown in Figure 1, the SEK (vs. 6M STIBOR) is a swap curve based on the 6 month Stockholm Interbank Offered Rate, denoted by 6M STIBOR. The cash rate for the 6M STIBOR can be seen on the left-hand side of Figure 1, and the rates for the swaps can be seen on the right-hand side of Figure 1. The day count convention for each panel of instruments can also be observed at the bottom. 
+
+The purpose of the SEK (vs. 6M STIBOR) is to forecast the interest rate for the 6M STIBOR. This means that whatever point we select on the curve is what the market will assume the 6M STIBOR will be in that amount of time. As a result this will forecast the floating leg of a swap.
 </p>
 
 ![image alt text](media/quotes.png)
@@ -27,7 +31,7 @@ As seen in Figure 1, the SEK (vs. 6M STIBOR) is a swap curve based on the 6 mont
 
 ## Quantlib
 <p style ="text-align: justify">
-We initiate with setting the desired date and importing the required packages. The date of which the bootstrap procedure begins is set with reference to the top right corner of Figure 2. In this case it corresponds to the settlement date which often is T + 2 of the initial date. Note, this is a very important step (also will deviate across platforms) of the bootstrapping procedure as it will ensure us that the maturity dates of the curve will be correct:
+We begin by setting the desired date and importing the necessary packages. The date at which the bootstrap procedure starts is determined with reference to the top right corner of Figure 2, In this case corresponding to the settlement date which often is T + 2 of the initial date in Sweden. It's important to note that this step is crucial (and may vary across trading desks) in the bootstrapping procedure, as it ensures that the maturity dates of the curve will be correct:
 </p>
 
 ```python
@@ -37,24 +41,24 @@ import numpy as np
 import quantlib as ql
 from datetime import datetime, date, timedelta
 
-# Define the date according the QuantLib standards
+# Define the date according to the QuantLib standards
 ql_date = ql.Date("2023-01-11", "%Y-%m-%d") 
 ql.Settings.instance().evaluationDate = ql_date
 ```
 
 <p style="text-align: justify"> 
-Furthermore, the main approach behind bootstrapping with QuantLib is to define all your instruments with the help of helpers. Helpers are functions designed to define an instrument with their properties to make the bootstrapping procedure less painful. There are helpers for each instrument such as: 
+Furthermore, the main approach behind bootstrapping with QuantLib is to define all your instruments using helpers. Helpers are classes designed to define an instrument with its properties, which makes the bootstrapping procedure less cumbersome. There are helpers for each instrument such as: 
 
 - DepositRateHelper
 - FraRateHelper
 - FuturesRateHelper
 
-and so on, you can find the list of all helpers [here](https://quantlib-python-docs.readthedocs.io/en/latest/thelpers.html). When you have defined the instruments with helpers you want to store them in a list so that you can call ql.PiecewiseLinearZero() which will find the solutions for the curve given the instruments you have defined.
+and so on, you can find the list of all helpers [here](https://quantlib-python-docs.readthedocs.io/en/latest/thelpers.html). Once you have defined the instruments with helpers, you will want to store them in a list so that you can call ql.PiecewiseLinearZero(), which will find the solutions for the curve given the instruments you have defined.
 </p>
 
 
 <p style ="text-align: justify">
-As the first instrument in curve is the 6M STIBOR it will be the first instrument to be modelled. 6M STIBOR is interpreted as a deposit rate. Thus, we use the QuantLib function DepositRateHelper:
+Since the first instrument in curve is the 6M STIBOR, it will be the first instrument to be modeled. The 6M STIBOR is interpreted as a deposit rate, so we use the QuantLib function DepositRateHelper:
 </p>
 
 ```python
@@ -85,7 +89,7 @@ store_helpers.append(stibor_helper)
 store_helpers is initially an empty list which will be used to store all the helper objects.
 
 ### stibor_rate
-stibor_rate stores the rate of the deposit which can be observed on the left side of Figure 1. Note that the value given in the Bloomberg Terminal is the interest rate of 6M STIBOR given in procentage. Therefore, as observed in the code, the stibor_rate variable is divided by 100.00 to obtain the true interest rate. 
+The stibor_rate variable stores the rate of the deposit, which can be observed on the left side of Figure 1. Note that the value given in the Bloomberg Terminal is the interest rate of 6M STIBOR given as a percentage. Therefore, as shown in the code, the stibor_rate variable is divided by 100.00 to obtain the true interest rate. 
 
 ### stibor_maturity
 As mentioned previously, 6M STIBOR is the 6 month average short end interest rate loan that Swedish bank charging each other when loaning without collateral. Therefore, the maturity of the deposit is set to 6 months.
@@ -170,13 +174,13 @@ curve = ql.PiecewiseLinearZero(0, ql.TARGET(), helpers, ql.Actual365Fixed())
 ```
 
 <p style = "text-align: justify">
-Note that you also have the option here to change the calendar and the day count for the bootstrap itself. You will have the option to modify these parameters based on your desired outcome.
+Note that you also have the option to change the calendar and the day count for the bootstrap. You can modify these parameters based on your desired outcome.
 </p>
 
 ## Result
 
 <p style = "text-align: justify">
-The zero rates from Bloomberg can be observed in Figure 2. In addition, in Figure 3 contains the resulting curve from QuantLib. To make it easier to compare the curves a table is created of which the difference between the results are calculated as viewed in Table 1. However, the basis point difference can be disregarded as the result from Bloomberg is rounded. Thus, the extra digits in basis point difference are all from the QuantLib approximation which if we would also round them up would result in zeros.
+The zero rates obtained from Bloomberg are displayed in Figure 2. MEanwhile, the resulting curve generated from QuantLib is shown in Figure 3. To facilitate the comparison of the curves, a table is created to calculate the difference between the results, as presented in Table 1. It is important to note that the basis point difference can be disregarded, as the result from Bloomberg is rounded. Therefore, any extra digits in the basis point difference are solely from the QuantLib approximation. If we were to round them up, they would result in zeros.
 </p>
 
 ![image alt text](media/curve.png)
@@ -215,4 +219,8 @@ In this blog post we have managed to recreate the SEK (vs. 6M STIBOR) from curve
 
 In the next post for bootstrapping we will have a look how to manually bootstrap. 
 
+## References
+- Luigi Ballabio, *Implementing QuantLib: Quantitative finance in C++: an inside look at the architecture of the QuantLib library*, Autopubblicato
+- J HAmish M Darbyshire, *Pricing and Trading Interest Rate Derivatives: A Practical Guide to Swaps*, Aitch & Dee Limited
+- Bloomberg L.P., SEK (vs. 6M STIBOR)
 </p>
