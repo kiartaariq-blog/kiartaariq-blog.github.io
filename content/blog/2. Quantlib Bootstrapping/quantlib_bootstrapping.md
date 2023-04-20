@@ -221,6 +221,6 @@ In the next post for bootstrapping we will have a look how to manually bootstrap
 
 ## References
 - Luigi Ballabio, *Implementing QuantLib: Quantitative finance in C++: an inside look at the architecture of the QuantLib library*, Autopubblicato
-- J HAmish M Darbyshire, *Pricing and Trading Interest Rate Derivatives: A Practical Guide to Swaps*, Aitch & Dee Limited
+- J Hamish M Darbyshire, *Pricing and Trading Interest Rate Derivatives: A Practical Guide to Swaps*, Aitch & Dee Limited
 - Bloomberg L.P., SEK (vs. 6M STIBOR)
 </p>
