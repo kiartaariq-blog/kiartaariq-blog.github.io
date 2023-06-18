@@ -13,7 +13,7 @@
             <div class = "flex flex-col h-1/5 m-1 text-xs">
                 <a href="">LinkedIn</a>
                 <a href="">Github</a>
-                <a href="">Google Scholar</a>
+                <a href="https://scholar.google.com/citations?user=3eZbj84AAAAJ&hl=sv&oi=ao">Google Scholar</a>
             </div>
        </div> 
 
