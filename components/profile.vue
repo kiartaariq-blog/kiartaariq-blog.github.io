@@ -11,8 +11,8 @@
                 </p>
             </div>
             <div class = "flex flex-col h-1/5 m-1 text-xs">
-                <a href="">LinkedIn</a>
-                <a href="">Github</a>
+                <a href="https://www.linkedin.com/in/tariq-nazar-060719bb/">LinkedIn</a>
+                <a href="https://github.com/taariqnazar">Github</a>
                 <a href="https://scholar.google.com/citations?user=3eZbj84AAAAJ&hl=sv&oi=ao">Google Scholar</a>
             </div>
        </div> 
@@ -31,8 +31,8 @@
                 </p>
             </div>
             <div class = "flex flex-col h-1/5 m-1 text-xs">
-                <a href="">LinkedIn</a>
-                <a href="">Github</a>
+                <a href="https://www.linkedin.com/in/kiar-fatah-a8a091138/">LinkedIn</a>
+                <a href="https://github.com/Xiar-fatah">Github</a>
             </div>
        </div>
     </div>
