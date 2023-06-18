@@ -2,7 +2,7 @@
 title:  How to Replicate Bloomberg's Interest Rates Curves with Quantlib
 author: Kiar Fatah
 layout: blog
-createdAt:  TBA
+createdAt:  2023-06-18
 description: "How to Replicate Bloomberg's Interest Rates Curves"
 tags: [Bootstrapping, Interest Rates Curves, Quantlib, Deposit, Swaps]
 toc: true
