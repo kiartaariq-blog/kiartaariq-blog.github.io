@@ -1,4 +1,5 @@
 <template>
+    <meta name="google-site-verification" content="2koi5rkebY-RyuRXC71QRFhRAlOKft3MfX6eMdQAjwg" />
     <div>
 
       <h1 class="text-3xl">{{page.title}}</h1>
