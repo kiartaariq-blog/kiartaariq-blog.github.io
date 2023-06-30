@@ -1,12 +1,11 @@
 <template>
-    <head>
-    <!-- Other meta tags and head content here -->
-    <meta name="google-site-verification" content="2koi5rkebY-RyuRXC71QRFhRAlOKft3MfX6eMdQAjwg" />
-    <!-- Other head content here -->
-    </head>
-    <body>
-        <!-- Rest of your HTML content -->
-    </body>
+    <div>
+        <head>
+        <!-- Other meta tags and head content here -->
+        <meta name="google-site-verification" content="2koi5rkebY-RyuRXC71QRFhRAlOKft3MfX6eMdQAjwg" />
+        <!-- Other head content here -->
+        </head>
+    </div>
     <div>
 
       <h1 class="text-3xl">{{page.title}}</h1>
