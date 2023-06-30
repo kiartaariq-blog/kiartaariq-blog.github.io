@@ -1,6 +1,6 @@
-<template>
+o<template>
     <title>
-        blog.com
+        Hi, we are...
     </title>
     <head>
     <!-- Other meta tags and head content here -->
