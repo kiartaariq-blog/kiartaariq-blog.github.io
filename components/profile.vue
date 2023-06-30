@@ -1,9 +1,9 @@
 <template>
     <div>
+    <head>
     <title>
         Hi, we are...
     </title>
-    <head>
     <!-- Other meta tags and head content here -->
     <meta name="google-site-verification" content="2koi5rkebY-RyuRXC71QRFhRAlOKft3MfX6eMdQAjwg" />
     <!-- Other head content here -->
