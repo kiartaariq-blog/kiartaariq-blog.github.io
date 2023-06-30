@@ -1,4 +1,7 @@
 <template>
+    <title>
+        blog.com
+    </title>
     <head>
     <!-- Other meta tags and head content here -->
     <meta name="google-site-verification" content="2koi5rkebY-RyuRXC71QRFhRAlOKft3MfX6eMdQAjwg" />
