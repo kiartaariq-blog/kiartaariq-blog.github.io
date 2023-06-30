@@ -1,12 +1,9 @@
 <template>
-    <h1 class="text-3xl">'test'</h1>
-    <div>
-        <head>
-        <!-- Other meta tags and head content here -->
-        <meta name="google-site-verification" content="2koi5rkebY-RyuRXC71QRFhRAlOKft3MfX6eMdQAjwg" />
-        <!-- Other head content here -->
-        </head>
-    </div>
+    <head>
+    <!-- Other meta tags and head content here -->
+    <meta name="google-site-verification" content="2koi5rkebY-RyuRXC71QRFhRAlOKft3MfX6eMdQAjwg" />
+    <!-- Other head content here -->
+    </head>
     <div class = "flex flex-row justify-items-stretch h-60">
        <div class = "flex flex-col justify-items-stretch w-1/2 m-1 rounded-md">
             <div class = "h-1/2 m-1">
